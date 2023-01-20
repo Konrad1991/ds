@@ -1,27 +1,27 @@
 {
-    "id": "C2235DA5",
-    "path": "~/Documents/GitHub/ds/anova.cpp",
-    "project_path": "anova.cpp",
-    "type": "cpp",
+    "id": "8B0A6CDE",
+    "path": "~/Documents/GitHub/ds/anova.R",
+    "project_path": "anova.R",
+    "type": "r_source",
     "hash": "0",
     "contents": "",
     "dirty": false,
-    "created": 1674200214287.0,
+    "created": 1674222064663.0,
     "source_on_save": false,
     "relative_order": 2,
     "properties": {
         "tempName": "Untitled1",
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "99,0",
-        "scrollLine": "76"
+        "cursorPosition": "54,16",
+        "scrollLine": "43"
     },
     "folds": "",
-    "lastKnownWriteTime": 1674214688,
+    "lastKnownWriteTime": 1674224912,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1674214688776,
+    "last_content_update": 1674224912365,
     "read_only": false,
     "read_only_alternatives": []
 }

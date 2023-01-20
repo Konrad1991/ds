@@ -1,0 +1,5 @@
+`.sourceCpp_1_DLLInfo` <- dyn.load('/home/konrad/Documents/GitHub/ds/anova_cache/html/unnamed-chunk-2_sourceCpp/sourceCpp-x86_64-pc-linux-gnu-1.0.9/sourcecpp_ddf83380c0dd/sourceCpp_2.so')
+
+own_anova <- Rcpp:::sourceCppFunction(function(data, groups) {}, FALSE, `.sourceCpp_1_DLLInfo`, 'sourceCpp_1_own_anova')
+
+rm(`.sourceCpp_1_DLLInfo`)

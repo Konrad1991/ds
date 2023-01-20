@@ -1,0 +1,5 @@
+"0","stack(ssw_raw)
+"
+"2","Error in data.frame(values = unlist(unname(x)), ind, stringsAsFactors = FALSE) : 
+  arguments imply differing number of rows: 150, 0
+"
