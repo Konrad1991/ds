@@ -43,32 +43,14 @@ ssw_raw <- data.frame(y = c(ssw_raw[,1],
                             ssw_raw[,2],
                             ssw_raw[,3]),
                       x = df$Species)
-ssw_raw$y <- iris$Sepal.Length - ssw_raw$y 
+ssw_raw$y <- iris$Sepal.Length + ssw_raw$y 
+ssw_raw$y2 <- iris$Sepal.Length
+ssw_raw$y3 <- c(rep(group_means[1], 50),
+                rep(group_means[2], 50),
+                rep(group_means[3], 50))
   
-p2 <- ggplot() +
-  geom_point(data = df, aes(x = Species, y = Sepal.Length),
-             position = position_dodge2(width = 0.3)) +
-  stat_summary(fun = "mean", colour = "darkred", width = .4, geom = "crossbar",
-               data = df, aes(x = Species, group = Species, y = Sepal.Length)) +
-  geom_line(data = ssw_raw, aes(group = x2, y = y2, x = x1))
+ggplot(ssw_raw, aes(x = x, y = y)) +
+  geom_segment(aes(xend = x, yend = y3),
+               position = position_dodge2(width = 0.3), colour = "darkred") +
+  geom_point(position = position_dodge2(width = 0.3), colour = "darkblue") 
 
-p3 <- ggplot() +
-  geom_point(data = df, aes(x = Species, y = Sepal.Length),
-             position = position_dodge2(width = 0.3), size = 3) +
-  geom_point(data = ssw_raw, aes(x, y), 
-             position = position_dodge2(width = 0.3), colour = "darkred") +
-  stat_summary(fun = "mean", colour = "darkred", width = .4, geom = "crossbar",
-               data = df, aes(x = Species, group = Species, y = Sepal.Length)) 
-
-
-
-d <- mtcars
-fit <- lm(mpg ~ hp, data = d)
-d$predicted <- predict(fit)   # Save the predicted values
-d$residuals <- residuals(fit) # Save the residual values
-library(dplyr)
-d %>% select(mpg, predicted, residuals) %>% head()
-ggplot(d, aes(x = hp, y = mpg)) +
-  geom_segment(aes(xend = hp, yend = predicted)) +
-  geom_point() +
-  geom_line(aes(y = predicted), shape = 1)
