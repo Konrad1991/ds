@@ -1,8 +1,8 @@
-# Inner product
-# Outer product
-# Transpose
+# done Inner product
+# done Outer product
+# done Transpose
 # Kronecker product
-# Matrix multiplication
+# done Matrix multiplication
 # Determinants
 # LU Decomposition
 # QR Decomposition
@@ -18,10 +18,6 @@
 # Solving linear systems depends on LU and QR decomposition.
 # Least squares fitting depends on solving linear systems.
 
-
-# Kronecker product: 
-# The Kronecker product of two matrices is a larger matrix obtained by
-# taking all possible products of elements from the two matrices.
 
 # Eigenvalues and Eigenvectors
 # An eigenvalue is a scalar that represents how much a given matrix stretches 

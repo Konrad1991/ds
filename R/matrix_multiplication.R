@@ -37,7 +37,6 @@ b <- matrix(c(5,6,7,8), nrow=2, ncol=2)
 c <- mul_naiv(a, b)
 stopifnot(c == a%*%b)
 
-
 # Example 2
 a <- matrix(c(1,2,3,4), nrow=2, ncol=2)
 b <- matrix(c(5,6,7,8,9,10), nrow=2, ncol=3)
@@ -78,7 +77,6 @@ a <- matrix(c(1,2,3,4), nrow=2, ncol=2)
 b <- matrix(c(5,6,7,8), nrow=2, ncol=2)
 c <- mul(a, b)
 stopifnot(c == a%*%b)
-
 
 # Example 2
 a <- matrix(c(1,2,3,4), nrow=2, ncol=2)
