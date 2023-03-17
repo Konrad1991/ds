@@ -1,111 +1,64 @@
-inner <- function(a, b) {
-  stopifnot(dim(a) == dim(b))
-  
-  vec_vec_inner <- function(a, b) {
-    stopifnot(length(a) == length(b))
-    res <- 0
-    for(i in 1:length(a)) {
-      res <- res + a[i]*b[i]
-    }
-    res
-  }
-  
-  rec <- function(a, b, env) {
-    if( is.null(dim(a)) && is.null(dim(b)) ) {
-      res <- vec_vec_inner(a, b)
-      env$res <- c(env$res, res)
-      return(res)
-    } else {
-        l <- length(dim(a))
-        last_dim <- dim(a)[l]
-        trash <- lapply(seq(last_dim), function(x) {
-          indices <- rep(alist(,)[1], l)
-          indices[l] <- x
-          a <- do.call(`[`, c(list(a), indices))
-          b <- do.call(`[`, c(list(b), indices))
-          ret <- rec(a, b, env)
-          return(0)
-        })
-    }
-  }
-  
-  env <- new.env()
-  env$res <- NULL
-  if(is.null(dim(a))) {
-    env$res <- vec_vec_inner(a, b)
-  } else {
-    l <- dim(a)[length(dim(a))]
-    for(i in 1:l) {
-      rec(a, b, env)
-    }
-  }
-  
-  if(is.null(dim(a))) {
-    return(env$res)
-  } else {
-    return(sum(env$res)/dim(a)[length(dim(a))] )
-  }
-  
-}
-
-a <- c(2, 5, 6)
-b <- c(4, 3, 2)
-inner(a, b)
-stopifnot( a%*%b == inner(a, b))
-
-a <- array(1:36, dim = c(3, 3, 4))
-b <- array( (1:36) + 3.14, dim = c(3, 3, 4))
-stopifnot( a%*%b == inner(a, b))
-
+# Inner product
 # Outer product
-a <- c(2, 5, 6, 4)
-b <- c(4, 3, 7)
-out <- function(a, b, f = NULL) {
-  if(is.null(f)) {
-    f <- `*`
-  } else {
-    stopifnot(is.function(f))
-  }
-  stopifnot(dim(a) == dim(b))
-  res <- NULL
-  if(is.null(dim(a))) {
-    res <- array(0, dim = c(length(a), length(b)))
-  } else {
-    res <- array(0, dim = c(dim(a), dim(b)) )  
-  }
-  counter <- 1
-  for(i in 1:length(b)) { # cols
-    temp_b <- b[i]
-    for(j in 1:length(a)) { # rows
-      res[counter] <- f(a[j], temp_b)
-      counter <- counter + 1
-    }
-  }
-  
-  return(res)
-}
-
-outer(a, b, `^`)
-outer(a, b, \(a, b) {paste0(a, "^", b)})
-out(a, b, `^`)
-out(a, b, \(a, b) {paste0(a, "^", b)})
-stopifnot( a%o%b == out(a, b))
-
-a <- array(1:36, dim = c(3, 3, 4))
-b <- array( (1:36) + 3.14, dim = c(3, 3, 4))
-stopifnot( a%o%b == out(a, b))
-
-
-# Kronecker product
-
 # Transpose
-
+# Kronecker product
 # Matrix multiplication
+# Determinants
+# LU Decomposition
+# QR Decomposition
+# Eigenvalues and Eigenvectors
+# Singular Value Decomposition
+# Solving linear systems
+# Least Squares Fitting
+# Forming Partitioned Matrices
+
+# Determinants depend on LU decomposition.
+# QR decomposition and eigenvalue problems depend on matrix multiplication.
+# Singular value decomposition depends on eigenvalue problems. 
+# Solving linear systems depends on LU and QR decomposition.
+# Least squares fitting depends on solving linear systems.
+
+
+# Kronecker product: 
+# The Kronecker product of two matrices is a larger matrix obtained by
+# taking all possible products of elements from the two matrices.
 
 # Eigenvalues and Eigenvectors
+# An eigenvalue is a scalar that represents how much a given matrix stretches 
+# or shrinks a particular vector when multiplied by it.
+# An eigenvector is a non-zero vector that is only scaled by a scalar factor
+# when multiplied by the matrix.
+
 
 # Singular Value Decomposition and Determinants
+# The Singular Value Decomposition (SVD) is a factorization of a matrix into three matrices.
+# The left and right matrices represent the rotation of the input data
+# into a new coordinate system, and the middle matrix represents the scaling
+# of the data along each axis.
 
-# Least Squares Fitting and QR Decomposition
+# Determinants:
+# The determinant of a matrix is a scalar that represents how much the matrix scales 
+# the area or volume of a given region in space.
 
-# Forming Partitioned Matrices
+
+# LU and QR Decomposition:
+# The LU and QR decompositions are methods for factoring a matrix into 
+# a lower triangular matrix and an upper triangular matrix or
+# an orthogonal matrix and a triangular matrix, respectively.
+
+
+# Least Squares Fitting:
+# Least squares fitting is a method for finding the best-fit line or
+# curve that passes through a set of points by minimizing the 
+# sum of the squared errors between the predicted and observed values.
+
+
+# Forming Partitioned Matrices: 
+# Partitioned matrices are matrices that are split into smaller submatrices.
+# They are used to simplify calculations or to represent systems of equations.
+
+
+# Solving linear systems:
+# Solving linear systems involves finding the solution of a set of linear equations.
+# There are various methods for solving linear systems,
+# including Gaussian elimination, LU decomposition, and QR decomposition.
