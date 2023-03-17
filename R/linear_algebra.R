@@ -1,10 +1,10 @@
 # done Inner product
 # done Outer product
 # done Transpose
-# Kronecker product
+# done Kronecker product
 # done Matrix multiplication
 # Determinants
-# LU Decomposition
+# done LU Decomposition
 # QR Decomposition
 # Eigenvalues and Eigenvectors
 # Singular Value Decomposition
